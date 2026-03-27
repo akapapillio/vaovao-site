@@ -3,8 +3,8 @@
 Ce projet s'inscrit dans le cadre du **Mini-projet Web Design (Mars 2026)**. L'objectif est de créer un site web d'informations sur la guerre en Iran, avec une séparation claire entre un FrontOffice (affichage) et un BackOffice (gestion).
 
 ## 👥 Binôme
-- **Nom, Prénom** : `[À compléter]` - N° ETU : `[À compléter]`
-- **Nom, Prénom** : `[À compléter]` - N° ETU : `[À compléter]`
+- **Prénom** : Nalitiana - N° ETU002647
+- **Prénom** : Kiady - N° ETU003244
 
 ## 🎯 Objectifs
 - **FrontOffice** : Afficher de manière claire et structurée les contenus d'information.
