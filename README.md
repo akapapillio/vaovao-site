@@ -31,8 +31,9 @@ Une attention particulière est portée à l'optimisation SEO de la plateforme :
 - [ ] **Score Lighthouse** optimisé (ordinateur et mobile).
 
 ## 🛠 Technologies
-- **Langage / Framework** : `[À compléter]`
-- **Base de données** : `[À compléter]`
+- **Langage / Framework** : Laravel
+- **Base de données** : Mysql
+- **Frontend** : Bootstrap with Laravel
 
 ## 📦 Livraison et Déploiement
 - Projet fonctionnel, packagé sous forme de **conteneurs Docker** (fichier ZIP ou via `docker-compose`).
