@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+
+  # Apache + PHP
+  web0000:
+    build:
+      context: .                     
+      dockerfile: docker/apache/Dockerfile
+    container_name: news_apache0000
+    ports:
+      - "8080:80"                     
+    volumes:
+      - ./src:/var/www/html            
+    depends_on:
+      - db0000                        
+
+  # MySQL
+  db0000:
+    image: mysql:8.0
+    container_name: news_mysql0000
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: news_db0000
+    volumes:
+      - db_data0000:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # phpMyAdmin (facultatif)
+  phpmyadmin0000:
+    image: phpmyadmin/phpmyadmin
+    container_name: news_phpmyadmin0000
+    ports:
+      - "8081:80"                     
+    environment:
+      PMA_HOST: db0000
+      MYSQL_ROOT_PASSWORD: root
+
+# Volume pour persister la base de données
+volumes:
+  db_data0000:
