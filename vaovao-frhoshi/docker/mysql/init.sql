@@ -5,6 +5,7 @@ USE news_db0000;
 -- Table admins
 CREATE TABLE IF NOT EXISTS admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
@@ -19,5 +20,5 @@ CREATE TABLE IF NOT EXISTS articles (
 
 -- Admin par défaut (mot de passe : admin123)
 -- Exemple de mot de passe hashé avec bcrypt
-INSERT INTO admins (email, password)
-VALUES ('admin@mail.com', '$2y$10$wH8J9XyZQ8V5KXJ1Fh7YyO1k7WZQzQx0w1w1w1w1w1w1w1w1w1w1w');
+INSERT INTO admins (nom , email, password)
+VALUES ('admin','admin@mail.com', '$2y$10$wH8J9XyZQ8V5KXJ1Fh7YyO1k7WZQzQx0w1w1w1w1w1w1w1w1w1w1w');
