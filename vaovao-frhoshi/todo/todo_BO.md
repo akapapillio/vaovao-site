@@ -11,11 +11,13 @@ ETU:00000     - Kiady
     [ ] Page de gestion d'admin en utilisant CRUD admin -> BO affichage
         link: localhost:8080/vaovao-site/gestion_user/+ 
                             gestion-admin-utilisateur-date-pour-gerer-utilisateur-compte-locale  
-    [ ] Données sql dans init , pour l'utilisation Direct Apres le 1er lancement
+    [x] Données sql dans init , pour l'utilisation Direct Apres le 1er lancement
 
 [ ] GESTION DES articles
     [ ]CRUD article
-        [ ] n'oublions pas de utiliser (GESTION de URL)
+        [ ] n'oublions pas de utiliser (GESTION de URL : GET URL , !setMotCle , editMoCle)
+
+    
 
 
 

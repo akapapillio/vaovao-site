@@ -1,6 +1,19 @@
 RewriteEngine On
 
-# Supprimer .php des URLs
+# =====================================
+# 1) URL SEO GESTION ADMIN (priorité)
+# =====================================
+
+# /gestion_user
+RewriteRule ^gestion_user/?$ admin/admins.php [L,QSA]
+
+# /gestion_user/nimporte-quel-mot-seo
+RewriteRule ^gestion_user/(.*)$ admin/admins.php [L,QSA]
+
+# =====================================
+# 2) SUPPRIMER .php DES URLS (générique)
+# =====================================
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.php [L]
