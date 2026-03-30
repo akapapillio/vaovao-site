@@ -215,7 +215,7 @@
                         <a class="nav-link active" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#articles">Articles</a>
+                        <a class="nav-link" href="/app/view/BO/articles.php">New Articles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/admins.php">Administration</a>

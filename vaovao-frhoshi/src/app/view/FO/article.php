@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__DIR__, 3) . '/config/bootstrap.php';
-require_once dirname(__DIR__) . '/controllers/ArticleController.php';
+require_once dirname(__DIR__, 3) . '/app/controllers/ArticleController.php';
 
 $controller = new ArticleController();
 $id = isset($_GET['id']) ? (int)$_GET['id'] : null;

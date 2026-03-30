@@ -109,6 +109,7 @@ include 'header.php';
     <script>
         tinymce.init({
             selector: '#content',
+            license_key: 'gpl',
             language: 'fr_FR',
             height: 500,
             plugins: [
