@@ -4,7 +4,7 @@ require_once ROOT_PATH . "/app/repositories/DatabaseRepository.php";
 class ArticleRepository extends DatabaseRepository {
 
     public function getAllArticles($limit = null, $offset = 0) {
-        $sql = "SELECT id, title, content, created_at FROM articles ORDER BY created_at DESC";
+        $sql = "SELECT id, title, keywords, featured_image, content, created_at FROM articles ORDER BY created_at DESC";
         if ($limit) {
             $limit = (int)$limit;
             $offset = (int)$offset;
@@ -15,22 +15,22 @@ class ArticleRepository extends DatabaseRepository {
 
     public function getArticleById($id) {
         return $this->fetch(
-            "SELECT id, title, content, created_at FROM articles WHERE id = ?",
+            "SELECT id, title, keywords, featured_image, content, created_at FROM articles WHERE id = ?",
             [$id]
         );
     }
 
-    public function createArticle($title, $content) {
+    public function createArticle($title, $keywords, $featured_image, $content) {
         return $this->execute(
-            "INSERT INTO articles(title, content) VALUES (?, ?)",
-            [$title, $content]
+            "INSERT INTO articles(title, keywords, featured_image, content) VALUES (?, ?, ?, ?)",
+            [$title, $keywords, $featured_image, $content]
         );
     }
 
-    public function updateArticle($id, $title, $content) {
+    public function updateArticle($id, $title, $keywords, $featured_image, $content) {
         return $this->execute(
-            "UPDATE articles SET title = ?, content = ? WHERE id = ?",
-            [$title, $content, $id]
+            "UPDATE articles SET title = ?, keywords = ?, featured_image = ?, content = ? WHERE id = ?",
+            [$title, $keywords, $featured_image, $content, $id]
         );
     }
 

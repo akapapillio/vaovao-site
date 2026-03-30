@@ -20,17 +20,17 @@ class ArticleModel {
         return $this->repo->getArticleById($id);
     }
 
-    public function addArticle($title, $content) {
+    public function addArticle($title, $keywords, $featured_image, $content) {
         if (empty($title) || strlen($title) < 3) {
             throw new Exception("Le titre doit contenir au moins 3 caractères");
         }
         if (empty($content)) {
             throw new Exception("Le contenu ne peut pas être vide");
         }
-        return $this->repo->createArticle($title, $content);
+        return $this->repo->createArticle($title, $keywords, $featured_image, $content);
     }
 
-    public function updateArticle($id, $title, $content) {
+    public function updateArticle($id, $title, $keywords, $featured_image, $content) {
         if (!is_numeric($id) || $id <= 0) {
             throw new Exception("ID invalide");
         }
@@ -40,7 +40,7 @@ class ArticleModel {
         if (empty($content)) {
             throw new Exception("Le contenu ne peut pas être vide");
         }
-        return $this->repo->updateArticle($id, $title, $content);
+        return $this->repo->updateArticle($id, $title, $keywords, $featured_image, $content);
     }
 
     public function deleteArticle($id) {

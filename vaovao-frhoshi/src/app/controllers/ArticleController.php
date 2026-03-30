@@ -45,9 +45,9 @@ class ArticleController {
     /**
      * Crée un nouvel article (pour le BO)
      */
-    public function create($title, $content) {
+    public function create($title, $content, $keywords = '', $featured_image = '') {
         try {
-            $this->model->addArticle($title, $content);
+            $this->model->addArticle($title, $keywords, $featured_image, $content);
             return ['success' => 'Article créé avec succès'];
         } catch (Exception $e) {
             return ['error' => $e->getMessage()];
@@ -57,9 +57,9 @@ class ArticleController {
     /**
      * Met à jour un article (pour le BO)
      */
-    public function update($id, $title, $content) {
+    public function update($id, $title, $content, $keywords = '', $featured_image = '') {
         try {
-            $this->model->updateArticle($id, $title, $content);
+            $this->model->updateArticle($id, $title, $keywords, $featured_image, $content);
             return ['success' => 'Article mis à jour'];
         } catch (Exception $e) {
             return ['error' => $e->getMessage()];

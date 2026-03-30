@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- User par défaut (mot de passe : user123)
-INSERT INTO users (nom, email, password)
-VALUES ('user', 'user@mail.com', '$2y$10$wH8J9XyZQ8V5KXJ1Fh7YyO1k7WZQzQx0w1w1w1w1w1w1w1w1w1w')
+-- Utilisateur par défaut
+-- Mot de passe: user123 (hash bcrypt)
+INSERT INTO users (nom, email, password) VALUES
+('user', 'user@mail.com', '$2y$12$8rUHkUetS4na10AQqzAaNOtpXnLXz7/z0XPzavPoIhI21K6P.nw9u')
 ON DUPLICATE KEY UPDATE nom=nom;
