@@ -10,6 +10,9 @@ RewriteRule ^gestion_user/?$ admin/admins.php [L,QSA]
 # /gestion_user/nimporte-quel-mot-seo
 RewriteRule ^gestion_user/(.*)$ admin/admins.php [L,QSA]
 
+# vvm/FO/nimporte-quel-mot-seo   => pour normalisation de notre accueills
+RewriteRule ^vvm/FO/(.*)$ / [L,QSA]
+
 # =====================================
 # 2) SUPPRIMER .php DES URLS (générique)
 # =====================================

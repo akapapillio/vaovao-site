@@ -27,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['role'] = 'user';
 
-                header('Location: /');
+                // header('Location: /');
+                header('Location: /vvm/FO/Accueil-vaovao-malaza-ary-marina-actualités-analyses-situation-iran-impacts-géopolitiques-guerre-escalade-acteurs');
                 exit;
             } else {
                 $error = 'Nom ou mot de passe incorrect.';
