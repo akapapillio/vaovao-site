@@ -38,3 +38,5 @@ CREATE TABLE IF NOT EXISTS users (
 -- INSERT INTO users (nom, email, password) VALUES
 -- ('user', 'user@mail.com', '$2y$12$8rUHkUetS4na10AQqzAaNOtpXnLXz7/z0XPzavPoIhI21K6P.nw9u')
 -- ON DUPLICATE KEY UPDATE nom=nom;
+
+

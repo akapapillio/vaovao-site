@@ -5,9 +5,10 @@ objectif 1 : utiliser tiliser RewriteEngine pour permettre de normaliser les lie
             les lien pour la meme resource => base url + article/id_article-motsclé (mots clé en parametre)
  
 
-[ ] configuration de HTACCESS
-    [ ] 
+[x] configuration de HTACCESS
+    [x] normalisation  
+    [ ] gzip
+    [ ] cash
 
-[ ] implementé la fonctionnalité gestion de Link pour article
-    [ ] fonction getLinKArticle(id_article) (lien avec toute les mot clé qui va marché grace a rewriter)
-    [ ] fonction editMotCleLink(id_article)
+[x] implementé la fonctionnalité gestion de Link pour article
+    [x]utilisation de keywords et de slug

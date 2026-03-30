@@ -9,7 +9,7 @@ temps estimer total de cette module 3h max ,(telechargement y compris)
     [x] initiation
     [x] test
     [x] donnee initial a tester
-    [ ] donnee initial version final
+    [x] donnee initial version final
 [x]metre en place l'apache
     [x]initiation
     [x]test du serveur
