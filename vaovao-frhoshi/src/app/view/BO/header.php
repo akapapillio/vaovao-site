@@ -152,6 +152,10 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">📊 Vaovao Back-Office</a>
             <span class="navbar-text text-white">Gestion d'articles et administrateurs</span>
+            <div class="navbar-text text-white ms-auto">
+                <span>👤 <?= htmlspecialchars($admin_nom ?? 'Admin') ?></span>
+                <a href="logout.php" class="btn btn-sm btn-outline-light ms-2">🚪 Déconnexion</a>
+            </div>
         </div>
     </nav>
 

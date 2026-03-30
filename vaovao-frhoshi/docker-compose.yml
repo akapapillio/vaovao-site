@@ -27,6 +27,7 @@ services:
       - db_data0000:/var/lib/mysql
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/01-init.sql
       - ./docker/mysql/insert-articles.sql:/docker-entrypoint-initdb.d/02-insert-articles.sql
+      - ./docker/mysql/create-users-table.sql:/docker-entrypoint-initdb.d/03-create-users-table.sql
 
   # phpMyAdmin (facultatif)
   phpmyadmin0000:

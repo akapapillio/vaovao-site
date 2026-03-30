@@ -7,11 +7,11 @@ class AdminRepository extends DatabaseRepository {
         return $this->fetchAll("SELECT * FROM admins ORDER BY id DESC");
     }
 
-    public function createAdmin($username, $password) {
+    public function createAdmin($nom, $email, $password) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         return $this->execute(
-            "INSERT INTO admins(username,password) VALUES (?,?)",
-            [$username, $hash]
+            "INSERT INTO admins(nom, email, password) VALUES (?, ?, ?)",
+            [$nom, $email, $hash]
         );
     }
 

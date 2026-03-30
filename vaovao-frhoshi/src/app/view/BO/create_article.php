@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__DIR__, 3) . '/config/bootstrap.php';
+require_once 'check_auth.php';
 require_once dirname(__DIR__, 3) . '/app/controllers/ArticleController.php';
 
 $pageTitle = 'Créer un Article - Back-Office';

@@ -13,11 +13,11 @@ class AdminModel {
         return $this->repo->getAllAdmins();
     }
 
-    public function addAdmin($username, $password) {
-        if (strlen($username) < 3) {
-            die("Username trop court");
+    public function addAdmin($nom, $email, $password) {
+        if (strlen($nom) < 3) {
+            die("Nom trop court");
         }
-        $this->repo->createAdmin($username, $password);
+        $this->repo->createAdmin($nom, $email, $password);
     }
 
     public function deleteAdmin($id) {
