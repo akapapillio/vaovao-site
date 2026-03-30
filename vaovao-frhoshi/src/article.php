@@ -1,2 +1,3 @@
-<h1>Article test</h1>
-<p>Le rewrite Apache fonctionne abstract</p>
+<?php
+// Affichage du détail d'un article
+include __DIR__ . '/app/view/FO/article.php';
