@@ -379,8 +379,8 @@ if (isset($_SESSION['role'])) {
                         <?php if ($login_type === 'admin'): ?>
                             <div class="info-box">
                                 <strong>Admin par défaut:</strong><br>
-                                Nom: <code>admin</code><br>
-                                Email: <code>admin@mail.com</code><br>
+                                Nom: <code>admin2</code><br>
+                                Email: <code>admin2@mail.com</code><br>
                                 Password: <code>admin123</code>
                             </div>
                             <div class="info-box">
