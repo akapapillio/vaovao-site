@@ -24,11 +24,11 @@ Ce projet s'inscrit dans le cadre du **Mini-projet Web Design (Mars 2026)**. L'o
 
 ## 📈 Optimisation et Référencement (SEO)
 Une attention particulière est portée à l'optimisation SEO de la plateforme :
-- [ ] **URL Rewriting** (normalisation des URLs).
-- [ ] **Hiérarchie Sémantique** claire avec les balises `<h1>` à `<h6>`.
-- [ ] **Balises Méta** de titre et de description bien définies pour chaque page.
-- [ ] **Attributs `alt`** systématiques pour toutes les images.
-- [ ] **Score Lighthouse** optimisé (ordinateur et mobile).
+- [x] **URL Rewriting** (normalisation des URLs).
+- [x] **Hiérarchie Sémantique** claire avec les balises `<h1>` à `<h6>`.
+- [x] **Balises Méta** de titre et de description bien définies pour chaque page.
+- [x] **Attributs `alt`** systématiques pour toutes les images.
+- [x] **Score Lighthouse** optimisé (ordinateur et mobile).
 
 ## 🛠 Technologies
 - **Langage / Framework** : Laravel
