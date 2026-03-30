@@ -1,20 +1,48 @@
 RewriteEngine On
 
 # =====================================
-# 1) URL SEO GESTION ADMIN (priorité)
+# 1) URL SEO BACKOFFICE
 # =====================================
 
-# /gestion_user
-RewriteRule ^gestion_user/?$ admin/admins.php [L,QSA]
+# RewriteRule ^logout(.*)$ /app/view/BO/logout.php [L,QSA]
+
+
+# /gestion_admin
+RewriteRule ^vaovaosite/gestion_admin/?$ admin/admins.php [L,QSA]
 
 # /gestion_user/nimporte-quel-mot-seo
-RewriteRule ^gestion_user/(.*)$ admin/admins.php [L,QSA]
+RewriteRule ^vaovaosite/BO/gestion_admin/(.*)$ admin/admins.php [L,QSA]
 
-# vvm/FO/nimporte-quel-mot-seo   => pour normalisation de notre accueills
-RewriteRule ^vvm/FO/(.*)$ / [L,QSA]
+# /vaovaosite//nimporte-quel-mot-seo
+RewriteRule ^vaovaosite/BO/gestion_articles/create_articles/(.*)$ /app/view/BO/create_article.php [L,QSA]
+RewriteRule ^vaovaosite/BO/gestion_articles/(.*)$ /app/view/BO/articles.php [L,QSA]
+
+
+
+# vaovaosite/vvm/BO/nimporte-quel-mot-seo   => pour normalisation de notre accueills
+RewriteRule ^vaovaosite/vvm/BO/(.*)$ / [L,QSA]
 
 # =====================================
-# 2) SUPPRIMER .php DES URLS (générique)
+# 1) URL SEO FRONTOFFICE
+# =====================================
+
+# vaovaosite/vvm/FO/nimporte-quel-mot-seo   => pour normalisation de notre accueills
+RewriteRule ^vaovaosite/vvm/FO/(.*)$ / [L,QSA]
+
+
+
+
+
+
+
+
+
+
+
+
+
+# =====================================
+# n) SUPPRIMER .php DES URLS (générique)
 # =====================================
 
 RewriteCond %{REQUEST_FILENAME} !-f

@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['role'] = 'user';
 
-                // header('Location: /');
-                header('Location: /vvm/FO/Accueil-vaovao-malaza-ary-marina-actualités-analyses-situation-iran-impacts-géopolitiques-guerre-escalade-acteurs');
+                // header('Location: /'); nataoko statique lo le Lien eto ambany nito coms ito satry nipoaka le one tap tamn integre getUrlAcceuil
+                header('Location: /vaovaosite/vvm/FO/accueil-vaovao-malaza-ary-marina-actualités-analyses-situation-iran-impacts-géopolitiques-guerre-escalade-acteurs');
                 exit;
             } else {
                 $error = 'Nom ou mot de passe incorrect.';
@@ -54,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['admin_email'] = $admin_found['email'] ?? '';
                     $_SESSION['role'] = 'admin';
 
-                    header('Location: articles.php');
+                    // header('Location: articles.php');
+                    header('Location: /vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles');
                     exit;
                 } else {
                     $error = 'Mot de passe incorrect.';

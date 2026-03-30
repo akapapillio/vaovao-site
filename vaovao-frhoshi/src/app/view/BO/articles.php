@@ -14,7 +14,7 @@ include 'header.php';
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="/vaovaosite/vvm/BO/accueil-vaovao-malaza-ary-marina-actualités-analyses-situation-iran-impacts-géopolitiques-guerre-escalade-acteurs">Accueil</a></li>
             <li class="breadcrumb-item active">Gestion Articles</li>
         </ol>
     </nav>
@@ -22,7 +22,7 @@ include 'header.php';
     <!-- En-tête avec titre et bouton d'ajout -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="page-title">📰 Gestion des Articles</h1>
-        <a href="create_article.php" class="btn btn-primary btn-lg">
+        <a href="/vaovaosite/BO/gestion_articles/create_articles/" class="btn btn-primary btn-lg">
             ✏️ Ajouter un article
         </a>
     </div>
@@ -62,7 +62,7 @@ include 'header.php';
             <?php if (empty($articles)): ?>
                 <div class="text-center py-5">
                     <p style="color: #999; font-size: 1.1rem;">Aucun article trouvé. </p>
-                    <a href="create_article.php" class="btn btn-primary">Créer le premier article</a>
+                    <a href="/vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles" class="btn btn-primary">Créer le premier article</a>
                 </div>
             <?php else: ?>
                 <div class="table-responsive">
@@ -92,11 +92,11 @@ include 'header.php';
                                     </td>
                                     <td class="table-actions">
                                         <div class="action-buttons d-flex">
-                                            <a href="view_article.php?id=<?= $article['id'] ?>"
+                                            <a href="/app/view/BO/view_article.php?id=<?= $article['id'] ?>"
                                                class="btn btn-sm btn-info" title="Voir">
                                                 👁️
                                             </a>
-                                            <a href="edit_article.php?id=<?= $article['id'] ?>"
+                                            <a href="/app/view/BO/edit_article.php?id=<?= $article['id'] ?>"
                                                class="btn btn-sm btn-warning" title="Éditer">
                                                 ✏️
                                             </a>
@@ -131,7 +131,7 @@ include 'header.php';
     <script>
         function confirmDelete(id, title) {
             if (confirm(`Êtes-vous sûr de vouloir supprimer l'article "${title}"?\n\nCette action est irréversible.`)) {
-                window.location.href = `delete_article.php?id=${id}`;
+                window.location.href = `/app/view/BO/delete_article.php?id=${id}`;
             }
         }
     </script>

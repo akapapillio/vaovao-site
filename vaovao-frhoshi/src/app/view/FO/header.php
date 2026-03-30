@@ -216,7 +216,7 @@
                     </li>
                     <?php if (isset($current_role) && $current_role === 'admin'): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/view/BO/articles.php">Gestion Articles</a>
+                        <a class="nav-link" href="/vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles">Gestion Articles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/admins.php">Gestion Admins</a>

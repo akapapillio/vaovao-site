@@ -27,7 +27,7 @@ include 'header.php';
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="articles.php">Articles</a></li>
+            <li class="breadcrumb-item"><a href="/vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles">Articles</a></li>
             <li class="breadcrumb-item active">Voir l'article #<?= $article['id'] ?></li>
         </ol>
     </nav>
@@ -38,7 +38,7 @@ include 'header.php';
             <a href="edit_article.php?id=<?= $article['id'] ?>" class="btn btn-warning btn-lg">
                 ✏️ Éditer
             </a>
-            <a href="articles.php" class="btn btn-secondary btn-lg">
+            <a href="/vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles" class="btn btn-secondary btn-lg">
                 ← Retour
             </a>
         </div>

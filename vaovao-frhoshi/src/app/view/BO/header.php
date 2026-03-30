@@ -154,7 +154,7 @@
             <span class="navbar-text text-white">Gestion d'articles et administrateurs</span>
             <div class="navbar-text text-white ms-auto">
                 <span>👤 <?= htmlspecialchars($admin_nom ?? 'Admin') ?></span>
-                <a href="logout.php" class="btn btn-sm btn-outline-light ms-2">🚪 Déconnexion</a>
+                <a href="/app/view/BO/logout.php" class="btn btn-sm btn-outline-light ms-2">🚪 Déconnexion</a>
             </div>
         </div>
     </nav>
@@ -170,8 +170,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="articles.php">
-                            📰 Gestion Articles
+                        <a class="nav-link" href="/vaovaosite/BO/gestion_articles/vaovao-back-office-article-gestion-des-articles">
+                            📰 Gestion Articles 
                         </a>
                     </li>
                     <li class="nav-item border-top mt-3 pt-3">
