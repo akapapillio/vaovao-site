@@ -19,6 +19,6 @@ CREATE TABLE IF NOT EXISTS articles (
 );
 
 -- Admin par défaut (mot de passe : admin123)
--- Exemple de mot de passe hashé avec bcrypt
+-- Exemple de mot de passe hashé 
 INSERT INTO admins (nom , email, password)
-VALUES ('admin','admin@mail.com', '$2y$10$wH8J9XyZQ8V5KXJ1Fh7YyO1k7WZQzQx0w1w1w1w1w1w1w1w1w1w1w');
+VALUES ('admin','admin@mail.com', '$2y$10$tok9THoaapxOOmD79zEEpeCob9ZpDQc6Sq3sJR6NZXxaax6iEnNQq');
