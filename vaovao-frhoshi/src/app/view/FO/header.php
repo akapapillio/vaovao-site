@@ -214,11 +214,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/">Accueil</a>
                     </li>
+                    <?php if (isset($current_role) && $current_role === 'admin'): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/view/BO/articles.php">New Articles</a>
+                        <a class="nav-link" href="/app/view/BO/articles.php">Gestion Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/admins.php">Administration</a>
+                        <a class="nav-link" href="/admin/admins.php">Gestion Admins</a>
+                    </li>
+                    <?php endif; ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            👤 <?= htmlspecialchars($current_user_nom ?? 'Utilisateur') ?>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><span class="dropdown-item-text">Rôle: <strong><?= $current_role === 'admin' ? '🔐 Admin' : '👤 Utilisateur' ?></strong></span></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/app/view/BO/logout.php">🚪 Déconnexion</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
