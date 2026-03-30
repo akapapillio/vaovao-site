@@ -53,4 +53,8 @@ class ArticleModel {
     public function getTotalArticles() {
         return $this->repo->countArticles();
     }
+
+    public function getKeyWords() {
+        return $this->repo->countArticles();
+    }
 }

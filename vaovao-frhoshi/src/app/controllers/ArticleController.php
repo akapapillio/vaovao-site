@@ -47,6 +47,14 @@ class ArticleController {
      */
     public function create($title, $content, $keywords = '', $featured_image = '') {
         try {
+            // Si les keywords sont vides, on les génère à partir du titre
+            if (empty($keywords)) {
+                // 1. Convertir en minuscules
+                // 2. Remplacer les caractères non alphanumériques par des tirets
+                // 3. Supprimer les tirets en double ou en début/fin
+                $keywords = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
+            }
+    
             $this->model->addArticle($title, $keywords, $featured_image, $content);
             return ['success' => 'Article créé avec succès'];
         } catch (Exception $e) {
@@ -64,7 +72,7 @@ class ArticleController {
         } catch (Exception $e) {
             return ['error' => $e->getMessage()];
         }
-    }
+    }  
 
     /**
      * Supprime un article (pour le BO)
