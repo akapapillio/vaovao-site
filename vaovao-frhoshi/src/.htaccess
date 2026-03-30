@@ -28,6 +28,10 @@ RewriteRule ^vaovaosite/vvm/BO/(.*)$ / [L,QSA]
 
 # vaovaosite/vvm/FO/nimporte-quel-mot-seo   => pour normalisation de notre accueills
 RewriteRule ^vaovaosite/vvm/FO/(.*)$ / [L,QSA]
+# vaovaosite/article/123-mon-bel-article  => redirige vers article.php?id=123
+RewriteRule ^vaovaosite/article/([0-9]+)-.*$ /app/view/FO/article.php?id=$1 [L,QSA]
+
+# RewriteRule ^vaovaosite/article/([0-30]+)-.*$ /app/view/FO/article.php?id=$1 [L,QSA]
 
 
 

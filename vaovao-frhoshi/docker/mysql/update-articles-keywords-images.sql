@@ -1,5 +1,5 @@
 -- Mettre à jour les articles avec keywords et featured_image
-USE news_db0000;
+-- USE news_db0000;
 
 -- Article 1
 UPDATE articles

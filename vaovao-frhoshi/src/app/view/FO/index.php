@@ -55,7 +55,12 @@ include 'header.php';
                                     <p class="article-card-text">
                                         <?= htmlspecialchars(substr(strip_tags($article['content']), 0, 150)) ?>...
                                     </p>
-                                    <a href="/article.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-read-more text-white">
+                                    <?php 
+                                    // On utilise les keywords générés en base de données
+                                    $slug = !empty($article['keywords']) ? $article['keywords'] : 'article';
+                                    $seoUrl = "/vaovaosite/article/" . $article['id'] . "-" . $slug;
+                                    ?>
+                                    <a href="<?= $seoUrl ?>" class="btn btn-sm btn-read-more text-white">
                                         Lire la suite →
                                     </a>
                                 </div>
