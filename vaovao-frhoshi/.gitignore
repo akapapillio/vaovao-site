@@ -1,0 +1,28 @@
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Docker volumes
+db_data0000/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Dependencies (si utilisation de Node/Composer)
+node_modules/
+vendor/
+
+# Logs
+*.log

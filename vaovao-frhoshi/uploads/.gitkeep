@@ -1,0 +1,2 @@
+# Ce fichier assure que le dossier uploads est versionné
+# Les fichiers uploadés ne doivent pas être committés
