@@ -48,34 +48,43 @@ include 'header.php';
                 <article class="article-detail">
                     <!-- Image de couverture -->
                     <?php if (!empty($article['featured_image'])): ?>
-                        <div style="margin-bottom: 2rem; text-align: center;">
+                        <div style="margin-bottom: 2.5rem; text-align: center; margin-left: -3rem; margin-right: -3rem; margin-top: -3rem; width: calc(100% + 6rem);">
                             <img src="<?= htmlspecialchars($article['featured_image']) ?>" 
                                  alt="<?= htmlspecialchars($article['title']) ?>"
-                                 style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                 style="width: 100%; height: auto; max-height: 400px; object-fit: cover;">
                         </div>
                     <?php endif; ?>
 
                     <!-- Meta informations -->
                     <div class="article-detail-meta">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap">
-                            <div>
-                                <strong>📅 Publié le:</strong>
-                                <?= date('d/m/Y à H:i', strtotime($article['created_at'])) ?>
-                            </div>
-                            <div>
-                                <strong>🆔 Article n°</strong> <?= $article['id'] ?>
-                            </div>
+                        <div>
+                            <strong>📅</strong> <?= date('d/m/Y', strtotime($article['created_at'])) ?>
+                        </div>
+                        <div>
+                            <strong>🕐</strong> Lecture: ~5 min
+                        </div>
+                        <div>
+                            <strong>🆔</strong> Article #<?= $article['id'] ?>
                         </div>
                     </div>
 
                     <!-- Contenu -->
                     <div class="article-detail-content">
-                        <?= nl2br(htmlspecialchars($article['content'])) ?>
+                        <?php
+                        // Convertir les paragraphes en balises <p>
+                        $content = htmlspecialchars_decode($article['content']);
+                        $paragraphes = array_filter(array_map('trim', explode("\n", $content)));
+                        foreach ($paragraphes as $para):
+                            if (!empty($para)):
+                                echo '<p>' . nl2br($para) . '</p>';
+                            endif;
+                        endforeach;
+                        ?>
                     </div>
 
                     <!-- Actions -->
-                    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #f0f0f0;">
-                        <a href="/" class="btn btn-primary">
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-light);">
+                        <a href="/" class="btn btn-read-more">
                             ← Retour aux articles
                         </a>
                     </div>
@@ -83,36 +92,13 @@ include 'header.php';
             </div>
         </div>
 
-        <!-- Articles associés (optionnel) -->
+        <!-- Articles similaires -->
         <div class="row mt-5">
             <div class="col-md-12">
-                <h3 style="color: #dc3545; margin-bottom: 1.5rem;">Articles similaires</h3>
+                <h3 style="font-family: 'Merriweather', serif; color: var(--accent-gold); margin-bottom: 2rem; font-size: 1.8rem; font-weight: 700;">Articles connexes</h3>
+                <p style="color: var(--text-light);">Découvrez d'autres articles qui pourraient vous intéresser.</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Vaovao</h5>
-                    <p>Plateforme d'informations et d'analyses géopolitiques</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p><strong>Contacts:</strong></p>
-                    <p>
-                        <a href="mailto:contact@vaovao.com">contact@vaovao.com</a>
-                    </p>
-                </div>
-            </div>
-            <hr style="border-color: #444; margin: 1rem 0;">
-            <div class="text-center">
-                <p>&copy; 2026 Vaovao. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include 'footer.php'; ?>

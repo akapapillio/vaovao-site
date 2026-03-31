@@ -4,18 +4,25 @@
             <div class="row">
                 <div class="col-md-6">
                     <h5>Vaovao</h5>
-                    <p>Plateforme d'informations et d'analyses géopolitiques</p>
+                    <p>Plateforme d'informations et d'analyses géopolitiques de premier plan. Découvrez les actualités qui façonnent le monde.</p>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <p><strong>Contacts:</strong></p>
+                <div class="col-md-3">
+                    <h5 style="font-size: 1rem;">Navigation</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/#articles">Tous les articles</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 style="font-size: 1rem;">Contacts</h5>
                     <p>
                         <a href="mailto:contact@vaovao.com">contact@vaovao.com</a>
                     </p>
                 </div>
             </div>
-            <hr style="border-color: #444; margin: 1rem 0;">
+            <hr>
             <div class="text-center">
-                <p>&copy; 2026 Vaovao. Tous droits réservés.</p>
+                <p>&copy; 2026 Vaovao. Tous droits réservés. | Plateforme d'analyse géopolitique</p>
             </div>
         </div>
     </footer>

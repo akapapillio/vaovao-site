@@ -11,7 +11,8 @@ services:
     ports:
       - "8080:80"                     
     volumes:
-      - ./src:/var/www/html            
+      - ./src:/var/www/html
+      - uploads_data0000:/var/www/html/uploads
     depends_on:
       - db0000                        
 
@@ -39,6 +40,7 @@ services:
       PMA_HOST: db0000
       MYSQL_ROOT_PASSWORD: root
 
-# Volume pour persister la base de données
+# Volume pour persister la base de données et les uploads
 volumes:
   db_data0000:
+  uploads_data0000:

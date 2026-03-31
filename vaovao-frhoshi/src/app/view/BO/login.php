@@ -84,19 +84,41 @@ if (isset($_SESSION['role'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Vaovao</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #dc3545;
-            --secondary-color: #6c757d;
+            --primary-gold: #c9a961;
+            --primary-copper: #8b6f47;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f5f3f0;
+            --light-text: #333;
+            --border-color: #e8e4df;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #c82333 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2a2a2a 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Lato', sans-serif;
+            color: var(--light-text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .login-wrapper {
@@ -107,8 +129,8 @@ if (isset($_SESSION['role'])) {
 
         .login-container {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
 
@@ -119,18 +141,20 @@ if (isset($_SESSION['role'])) {
         }
 
         .login-form-section {
-            padding: 3rem;
+            padding: 3.5rem;
             display: flex;
             flex-direction: column;
+            background-color: white;
         }
 
         .login-info-section {
-            background-color: #f8f9fa;
-            padding: 3rem;
-            border-left: 1px solid #ddd;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2a2a2a 100%);
+            padding: 3.5rem;
+            border-left: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #ccc;
         }
 
         .login-header {
@@ -138,27 +162,29 @@ if (isset($_SESSION['role'])) {
         }
 
         .login-header h1 {
-            color: var(--primary-color);
+            color: var(--primary-gold);
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
         .login-header p {
-            color: #666;
+            color: #999;
             margin: 0;
             font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         .role-tabs {
             display: flex;
-            gap: 0.5rem;
+            gap: 0;
             margin-bottom: 2rem;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .role-tab {
-            padding: 0.75rem 1rem;
+            padding: 0.75rem 1.5rem;
             background: none;
             border: none;
             color: #999;
@@ -168,15 +194,18 @@ if (isset($_SESSION['role'])) {
             border-bottom: 3px solid transparent;
             position: relative;
             bottom: -2px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
         .role-tab.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
+            color: var(--primary-gold);
+            border-bottom-color: var(--primary-gold);
         }
 
         .role-tab:hover {
-            color: var(--primary-color);
+            color: var(--primary-gold);
         }
 
         .form-group {
@@ -185,73 +214,103 @@ if (isset($_SESSION['role'])) {
 
         .form-label {
             font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+            margin-bottom: 0.6rem;
             display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
         }
 
         .form-control {
-            border: 2px solid #ddd;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
-            padding: 0.75rem 1rem;
+            padding: 0.8rem 1rem;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            background-color: var(--light-bg);
+            color: var(--light-text);
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+            background-color: white;
+        }
+
+        .form-control::placeholder {
+            color: #999;
         }
 
         .btn-login {
-            background-color: var(--primary-color);
+            background-color: var(--primary-gold);
             border: none;
             color: white;
             font-weight: 600;
-            padding: 0.75rem 1rem;
+            padding: 0.9rem 1rem;
             border-radius: 8px;
             width: 100%;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn-login:hover {
-            background-color: #c82333;
+            background-color: var(--primary-copper);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 111, 71, 0.3);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
         }
 
         .alert {
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
+            border: none;
+            border-left: 4px solid;
+            padding: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .alert-danger {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border-left-color: #e74c3c;
         }
 
         .info-section h3 {
-            color: var(--primary-color);
+            color: var(--primary-gold);
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            letter-spacing: 0.3px;
         }
 
         .info-box {
-            background-color: white;
-            border-left: 4px solid var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--primary-gold);
             padding: 1rem;
             border-radius: 0 8px 8px 0;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
-            color: #666;
+            color: #bbb;
         }
 
         .info-box strong {
-            color: #333;
+            color: var(--primary-gold);
         }
 
         .info-box code {
-            background-color: #f0f0f0;
+            background-color: rgba(0, 0, 0, 0.3);
             padding: 0.2rem 0.4rem;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
+            color: #ddd;
         }
 
         .back-link {
@@ -260,13 +319,15 @@ if (isset($_SESSION['role'])) {
         }
 
         .back-link a {
-            color: #666;
+            color: var(--primary-gold);
             text-decoration: none;
             font-size: 0.95rem;
+            transition: opacity 0.3s ease;
+            letter-spacing: 0.2px;
         }
 
         .back-link a:hover {
-            color: var(--primary-color);
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
@@ -276,7 +337,7 @@ if (isset($_SESSION['role'])) {
 
             .login-info-section {
                 border-left: none;
-                border-top: 1px solid #ddd;
+                border-top: 1px solid var(--border-color);
                 order: 2;
                 padding: 2rem;
             }
@@ -291,6 +352,7 @@ if (isset($_SESSION['role'])) {
             color: #666;
             font-size: 0.9rem;
             margin-top: 1rem;
+            line-height: 1.6;
         }
     </style>
 </head>
