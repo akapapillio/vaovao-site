@@ -16,6 +16,11 @@ temps estimer total de cette module 3h max ,(telechargement y compris)
     [x]test avec la base
     [x]tester le One Tape , (avec d autre pc aussi)
     [x]test des dependance a utiliser dans htaccess
+
+[x] configuration de HTACCESS et tester
+    [x] normalisation  
+    [x] gzip
+    [x] cash
     
 
 

@@ -7,8 +7,8 @@ objectif 1 : utiliser tiliser RewriteEngine pour permettre de normaliser les lie
 
 [x] configuration de HTACCESS
     [x] normalisation  
-    [ ] gzip
-    [ ] cash
+    [x] gzip
+    [x] cash
 
 [x] implementé la fonctionnalité gestion de Link pour article
     [x]utilisation de keywords et de slug
