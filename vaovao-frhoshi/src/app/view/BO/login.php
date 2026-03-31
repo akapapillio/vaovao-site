@@ -398,7 +398,7 @@ if (isset($_SESSION['role'])) {
                                    class="form-control"
                                    id="nom"
                                    name="nom"
-                                   placeholder="<?= $login_type === 'admin' ? 'Ex: admin' : 'Ex: user' ?>"
+                                   placeholder="<?= $login_type === 'admin' ? 'admin' : 'user' ?>"
                                    required
                                    autofocus>
                         </div>
@@ -410,7 +410,7 @@ if (isset($_SESSION['role'])) {
                                    class="form-control"
                                    id="password"
                                    name="password"
-                                   placeholder="Entrez votre mot de passe"
+                                   placeholder="<?= $login_type === 'admin' ? 'admin123' : 'user123' ?>"
                                    required>
                         </div>
 
