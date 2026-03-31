@@ -1,0 +1,7 @@
+# Permettre l'accès direct aux fichiers images
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Allow from all
+</FilesMatch>
+
+# Désactiver le rewrite pour les images
+RewriteEngine Off

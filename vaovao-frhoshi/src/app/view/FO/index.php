@@ -45,6 +45,13 @@ include 'header.php';
                     <?php foreach ($articles as $article): ?>
                         <div class="col-md-6 col-lg-4">
                             <div class="card article-card">
+                                <?php if (!empty($article['featured_image'])): ?>
+                                    <div style="overflow: hidden; height: 200px; background-color: #f0f0f0;">
+                                        <img src="<?= htmlspecialchars($article['featured_image']) ?>" 
+                                             alt="<?= htmlspecialchars($article['title']) ?>"
+                                             style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                <?php endif; ?>
                                 <div class="article-card-header">
                                     <h5 class="article-card-title"><?= htmlspecialchars($article['title']) ?></h5>
                                     <small class="article-date">

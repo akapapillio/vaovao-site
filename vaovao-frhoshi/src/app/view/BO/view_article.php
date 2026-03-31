@@ -51,6 +51,15 @@ include 'header.php';
                 <?= htmlspecialchars($article['title']) ?>
             </h2>
 
+            <!-- Image de couverture -->
+            <?php if (!empty($article['featured_image'])): ?>
+                <div style="margin-bottom: 2rem; text-align: center;">
+                    <img src="<?= htmlspecialchars($article['featured_image']) ?>" 
+                         alt="<?= htmlspecialchars($article['title']) ?>"
+                         style="max-width: 100%; max-height: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                </div>
+            <?php endif; ?>
+
             <!-- Métadonnées -->
             <div class="alert alert-info mb-3">
                 <div class="row">

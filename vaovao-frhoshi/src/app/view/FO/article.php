@@ -46,6 +46,15 @@ include 'header.php';
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <article class="article-detail">
+                    <!-- Image de couverture -->
+                    <?php if (!empty($article['featured_image'])): ?>
+                        <div style="margin-bottom: 2rem; text-align: center;">
+                            <img src="<?= htmlspecialchars($article['featured_image']) ?>" 
+                                 alt="<?= htmlspecialchars($article['title']) ?>"
+                                 style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Meta informations -->
                     <div class="article-detail-meta">
                         <div class="d-flex justify-content-between align-items-center flex-wrap">
