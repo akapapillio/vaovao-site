@@ -18,14 +18,14 @@ include 'header.php';
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>🌍 Vaovao Malaza ary Marina</h1>
-            <p>Actualités et analyses sur la situation en Iran et ses impacts géopolitiques</p>
+            <h1>Vaovao Malaza ary Marina</h1>
+            <p>Actualités et analyses géopolitiques de référence</p>
         </div>
     </section>
 
     <main class="container my-5">
-        <!-- Statistiques -->
-        <div class="row mb-4">
+        <!-- Statistics Bar -->
+        <div class="row mb-5">
             <div class="col-md-12">
                 <div class="alert alert-info">
                     <strong><?= $totalArticles ?></strong> article<?= $totalArticles > 1 ? 's' : '' ?> disponible<?= $totalArticles > 1 ? 's' : '' ?>
@@ -44,24 +44,29 @@ include 'header.php';
                 <div class="row g-4 mb-5">
                     <?php foreach ($articles as $article): ?>
                         <div class="col-md-6 col-lg-4">
-                            <div class="card article-card">
+                            <div class="article-card">
+                                <?php if (!empty($article['featured_image'])): ?>
+                                    <div class="article-card-image-wrapper">
+                                        <img src="<?= htmlspecialchars($article['featured_image']) ?>" 
+                                             alt="<?= htmlspecialchars($article['title']) ?>">
+                                    </div>
+                                <?php endif; ?>
                                 <div class="article-card-header">
                                     <h5 class="article-card-title"><?= htmlspecialchars($article['title']) ?></h5>
-                                    <small class="article-date">
+                                    <div class="article-date">
                                         📅 <?= date('d/m/Y', strtotime($article['created_at'])) ?>
-                                    </small>
+                                    </div>
                                 </div>
                                 <div class="article-card-body">
                                     <p class="article-card-text">
                                         <?= htmlspecialchars(substr(strip_tags($article['content']), 0, 150)) ?>...
                                     </p>
                                     <?php 
-                                    // On utilise les keywords générés en base de données
                                     $slug = !empty($article['keywords']) ? $article['keywords'] : 'article';
                                     $seoUrl = "/vaovaosite/article/" . $article['id'] . "-" . $slug;
                                     ?>
-                                    <a href="<?= $seoUrl ?>" class="btn btn-sm btn-read-more text-white">
-                                        Lire la suite →
+                                    <a href="<?= $seoUrl ?>" class="btn btn-read-more">
+                                        Lire la suite
                                     </a>
                                 </div>
                             </div>
@@ -122,28 +127,4 @@ include 'header.php';
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Vaovao</h5>
-                    <p>Plateforme d'informations et d'analyses géopolitiques</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p><strong>Contacts:</strong></p>
-                    <p>
-                        <a href="mailto:contact@vaovao.com">contact@vaovao.com</a>
-                    </p>
-                </div>
-            </div>
-            <hr style="border-color: #444; margin: 1rem 0;">
-            <div class="text-center">
-                <p>&copy; 2026 Vaovao. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?php include 'footer.php'; ?>

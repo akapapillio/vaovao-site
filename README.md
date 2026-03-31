@@ -10,6 +10,8 @@ Ce projet s'inscrit dans le cadre du **Mini-projet Web Design (Mars 2026)**. L'o
 - **FrontOffice** : Afficher de manière claire et structurée les contenus d'information.
 - **BackOffice** : Permettre l'ajout, la modification et la suppression de contenu (utilisation de l'éditeur **TinyMCE**).
 - **Base de données** : Modélisation et intégration des données du site.
+- Optimisation
+- normalisation seo
 
 ## 🚀 Fonctionnalités Principales
 
@@ -24,16 +26,15 @@ Ce projet s'inscrit dans le cadre du **Mini-projet Web Design (Mars 2026)**. L'o
 
 ## 📈 Optimisation et Référencement (SEO)
 Une attention particulière est portée à l'optimisation SEO de la plateforme :
-- [ ] **URL Rewriting** (normalisation des URLs).
-- [ ] **Hiérarchie Sémantique** claire avec les balises `<h1>` à `<h6>`.
+- [x] **URL Rewriting** (normalisation des URLs).
 - [ ] **Balises Méta** de titre et de description bien définies pour chaque page.
 - [ ] **Attributs `alt`** systématiques pour toutes les images.
-- [ ] **Score Lighthouse** optimisé (ordinateur et mobile).
+- [x] **Score Lighthouse** optimisé (ordinateur et mobile).
 
 ## 🛠 Technologies
-- **Langage / Framework** : Laravel
+- **Langage ** : PHP
 - **Base de données** : Mysql
-- **Frontend** : Bootstrap with Laravel
+- **Frontend** : Bootstrap with PHP
 
 ## 📦 Livraison et Déploiement
 - Projet fonctionnel, packagé sous forme de **conteneurs Docker** (fichier ZIP ou via `docker-compose`).

@@ -11,6 +11,7 @@ $controller = new ArticleController();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $content = $_POST['content'] ?? '';
+    $featured_image = '';
 
     if (empty($title)) {
         $error = 'Le titre est requis.';
@@ -18,7 +19,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Le contenu est requis.';
     } else {
         try {
-            $controller->create($title, $content);
+            // Traiter l'upload de l'image
+            if (!empty($_FILES['featured_image']['name'])) {
+                $file = $_FILES['featured_image'];
+                
+                // Validation du fichier
+                $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                
+                if (!in_array($file_ext, $allowed)) {
+                    throw new Exception('Format de fichier non autorisé. Formats acceptés: jpg, jpeg, png, gif, webp');
+                }
+                
+                if ($file['size'] > 5 * 1024 * 1024) { // 5 MB max
+                    throw new Exception('La taille du fichier ne doit pas dépasser 5 MB');
+                }
+                
+                if ($file['error'] !== UPLOAD_ERR_OK) {
+                    throw new Exception('Erreur lors de l\'upload du fichier');
+                }
+                
+                // Créer un nom unique pour le fichier
+                $upload_dir = dirname(__DIR__, 3) . '/uploads/';
+                if (!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0755, true);
+                }
+                
+                $new_filename = 'article_' . time() . '_' . uniqid() . '.' . $file_ext;
+                $upload_path = $upload_dir . $new_filename;
+                
+                if (!move_uploaded_file($file['tmp_name'], $upload_path)) {
+                    throw new Exception('Erreur lors de la sauvegarde du fichier');
+                }
+                
+                $featured_image = '/uploads/' . $new_filename;
+            }
+            
+            $controller->create($title, $content, '', $featured_image);
             header('Location: articles.php?success=created');
             exit;
         } catch (Exception $e) {
@@ -50,7 +87,7 @@ include 'header.php';
 
     <div class="card">
         <div class="card-body">
-            <form method="POST" id="articleForm">
+            <form method="POST" id="articleForm" enctype="multipart/form-data">
                 <!-- Titre -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Titre de l'article</label>
@@ -61,6 +98,20 @@ include 'header.php';
                            placeholder="Ex: La situation actuelle en Iran..."
                            required>
                     <small class="text-muted">Minimum 3 caractères</small>
+                </div>
+
+                <!-- Image de couverture -->
+                <div class="mb-3">
+                    <label for="featured_image" class="form-label">Image de couverture (optionnel)</label>
+                    <input type="file"
+                           class="form-control"
+                           id="featured_image"
+                           name="featured_image"
+                           accept="image/*">
+                    <small class="text-muted">Formats acceptés: JPG, PNG, GIF, WebP. Taille max: 5 MB</small>
+                    <div id="imagePreview" style="margin-top: 1rem; display: none;">
+                        <img id="previewImg" src="" alt="Aperçu" style="max-width: 300px; max-height: 300px; border-radius: 4px;">
+                    </div>
                 </div>
 
                 <!-- Contenu avec TinyMCE -->
@@ -102,6 +153,21 @@ include 'header.php';
                 editor.on('change', function () {
                     tinymce.triggerSave();
                 });
+            }
+        });
+
+        // Prévisualisation de l'image
+        document.getElementById('featured_image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('previewImg').src = event.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                document.getElementById('imagePreview').style.display = 'none';
             }
         });
     </script>
